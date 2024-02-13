@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Headers = () => {
   return (
     <div>Headers</div>
@@ -7,3 +5,5 @@ const Headers = () => {
 }
 
 export default Headers
+
+

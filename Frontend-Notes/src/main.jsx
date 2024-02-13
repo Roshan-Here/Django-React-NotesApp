@@ -7,14 +7,16 @@ import Button from './components/Button.jsx'
 import Count from './components/Count.jsx'
 import RandomImage from './components/RandomImage.jsx'
 import List from './components/List.jsx'
+import Movies from './components/Movies.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    {/* <App />
     <Headers/>
     <Button/>
     <Count/>
     <RandomImage/>
-    <List/>
+    <List/> */}
+    <Movies/>
   </React.StrictMode>,
 )

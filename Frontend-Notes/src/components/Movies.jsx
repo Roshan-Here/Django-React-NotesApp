@@ -21,6 +21,10 @@ function Movies() {
   console.log(moview)
 
   const trmoviedetails = () =>{
+    if (moview.length ===0){
+     return <p className='font-extrabold text-green-700'>Nothing to show</p>
+    }
+    else{ 
     const wow = moview.map(movie=>(
       <tr className='border-b border-blue-gray-200' key={movie._id}>
         <td className='py-3 px-3' >{movie.title}</td>
@@ -34,10 +38,11 @@ function Movies() {
     ))
     return wow
   }
+  }
 
   return (
     <div>
-      <h1 className='bg-black text-red-700 font-extrabold'>Movies database</h1>
+      <h1 className='bg-black text-red-700 font-extrabold'>Movies database of {moview.length===0? "Zero":moview.length }</h1>
       <div className='overflow-x-auto'>
         {/* table.table>thead>tr>th*4  */}
         <table className='min-w-full bg-white shadow-md rounded-xl'>

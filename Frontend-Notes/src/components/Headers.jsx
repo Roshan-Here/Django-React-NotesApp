@@ -2,7 +2,11 @@ import React from 'react'
 
 const Headers = () => {
   return (
-    <div>Headers</div>
+    <div>
+      <h1 className="text-3xl font-bold underline">
+          Hello Django + React + tailwind css
+      </h1> 
+    </div>
   )
 }
 

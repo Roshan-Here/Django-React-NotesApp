@@ -15,13 +15,13 @@ function NotesListPage() {
     SetNotes(data)
   }
   return(
-    <div>
-      <div className="m-5">
-        <Listitem 
-        notes = {notes}
-        />
-      </div>
-    </div>
+    <main className="">
+      <div className="w-screen h-screen max-w-screen-xl mx-auto  bg-slate-800">
+      <Listitem
+      notes = {notes}
+      />
+        </div>
+    </main>
   )
 }
 

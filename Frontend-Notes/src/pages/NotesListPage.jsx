@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import AddButton from "../components/AddButton";
+import Headers from "../components/Headers";
 import Listitem from "../components/Listitem";
 
-function NotesListPage() {
+
+function NotesListPage({}) {
   const [notes, SetNotes] = useState([]);
   useEffect(()=>{
     getNotes()
@@ -16,10 +19,18 @@ function NotesListPage() {
   }
   return(
     <main className="">
-      <div className="w-screen h-screen max-w-screen-xl mx-auto  bg-slate-800">
+        <Headers
+          notes = {notes}
+        />
+      <div className="w-screen h-screen max-w-screen-xl mx-auto  bg-slate-950">
       <Listitem
       notes = {notes}
       />
+      <div className="fixed bottom-10 right-0 p-2 flex items-end justify-end w-24 h-24">
+        <div className="text-yy shadow-xl items-center rounded-full">
+          <AddButton/>
+        </div>
+      </div>
         </div>
     </main>
   )

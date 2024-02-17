@@ -12,6 +12,13 @@ class NoteListView(generics.ListAPIView):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
 
+class NoteCreate(generics.CreateAPIView):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
+    
+    def perform_create(self, serializer):
+        return super().perform_create(serializer)
+
 
 class NoteCreateList(generics.ListCreateAPIView):
     queryset = Note.objects.all()

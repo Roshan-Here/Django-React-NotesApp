@@ -5,10 +5,10 @@ function Listitem({notes}) {
     const singleNotes = () =>{
     const ss = notes.map(s=>(
         <Link to={`/note/${s.id}`} key={s.id}>
-            <div className='flex items-center justify-center'> 
-                <div className="flex flex-col mx-auto bg-yy rounded-xl shadow-md overflow-hidden md:max-w-xl m-3">
-                <div className="p-8 flex items-center">
-                    <div className="pr-4">
+            <div className='flex py-1 items-center justify-center'> 
+                <div className="flex flex-col mx-auto bg-yy rounded-xl shadow-md overflow-hidden md:max-w-xl m-1">
+                <div className="px-24 flex items-center">
+                    <div className="sm:pr-16">
                         <p className="text-4xl font-bold">18th</p>
                     </div>
                     <div>

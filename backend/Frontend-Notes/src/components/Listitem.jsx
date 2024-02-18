@@ -42,19 +42,19 @@ function Listitem({ notes }) {
     const ss = notes.map((s) => (
       <Link to={`/note/${s.id}`} key={s.id}>
         <div className="py-1 items-center justify-center">
-          <div className="flex flex-col mx-auto bg-yy rounded-xl shadow-md overflow-hidden md:max-w-xl m-1">
-            <div className="px-24 flex items-center">
+          <div className="flex flex-col mx-auto bg-yy  rounded-xl shadow-md overflow-hidden md:max-w-xl m-1">
+            <div className="px-24 flex items-center hover:bg-slate-900 hover:text-yy">
               <div className="sm:pr-16">
                 <p className="text-4xl font-bold">{getDate(s)}</p>
               </div>
               <div>
-                <div className="uppercase tracking-wide text-lg text-black font-semibold">
+                <div className="uppercase tracking-wide text-lg font-semibold">
                   {getYear(s) + " " + getMonth(s)}
                 </div>
-                <p className="mt-2 text-black text-md">
+                <p className="mt-2 text-md">
                   {getTimeAMPMFormat(s)}
                 </p>
-                <p className="px-8 mt-2 text-black text-lg">
+                <p className="px-8 mt-2  text-lg">
                   {s.body.slice(0, 25) + "......"}
                 </p>
               </div>

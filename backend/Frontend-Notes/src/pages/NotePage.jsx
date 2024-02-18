@@ -125,7 +125,7 @@ function NotePage() {
           <textarea
             id={note.id}
             rows="12"
-            className="block p-8 w-full overflow-hidden text-xl bg-slate-950 text-yy"
+            className="block p-8 w-full hover:bg-slate-900 overflow-hidden text-xl bg-slate-950 text-yy"
             defaultValue={note?.body}
             onChange={(e) => {
               noteUpdate(e);

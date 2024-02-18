@@ -8,7 +8,7 @@ function AddButton() {
     <Link to={"/note/new"}>
       <FontAwesomeIcon
         icon={faPlus}
-        className="h-24 text-slate-950 bg-yy rounded-full"
+        className="h-24 text-slate-950 bg-yy hover:bg-slate-950 hover:text-yy rounded-full"
       />
     </Link>
   );

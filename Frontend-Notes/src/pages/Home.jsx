@@ -19,6 +19,16 @@ function Home() {
     });
     setCounters(updatedCounter);
   };
+  const countDecrease = (counter) =>{
+    const updatedCounter = counters.map((c) => {
+      if (c.id === counter.id) {
+        return { ...c, value: c.value - 1 };
+      }
+      return c;
+    });
+    setCounters(updatedCounter);
+  }
+
 
   const handleDelete = (counters, counterId) => {
     const remainingC = counters.filter((m) => m.id !== counterId);
@@ -36,6 +46,7 @@ function Home() {
     });
     setCounters(newcc);
   };
+
   return (
     <div>
       <Navbar totalCounters={counters.filter((c) => c.value > 0).length} />
@@ -44,6 +55,7 @@ function Home() {
         onReset={handleReset}
         onDelete={onnDelete}
         onIncrement={counthandle}
+        onDecrement={countDecrease}
       />
     </div>
   );

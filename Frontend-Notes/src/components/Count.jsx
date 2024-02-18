@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function Count({onDelete,value,Ccntr,Counthandle}) {
+function Count({onDelete,value,Ccntr,Counthandle,onDecrement}) {
   // console.log(Ccntr[0].value)
   const thalaforreason = () => {
     if (value === 0) {
@@ -23,7 +23,12 @@ function Count({onDelete,value,Ccntr,Counthandle}) {
         {thalaforreason()}
       </button>
       <button onClick={()=>onDelete(Ccntr.id)} className="m-2 w-40 h-20 text-red-900 bg-blue-300">Delete</button>
-    </div>
+      {value === 0 ? (
+          <button className="m-2 w-40 h-20 font-extrabold text-black bg-yellow-200">-</button>
+      ):(
+        <button onClick={()=>onDecrement()} className="m-2 w-40 h-20 font-extrabold text-black bg-yellow-300">-</button>
+      )}
+      </div>
   );
 }
 

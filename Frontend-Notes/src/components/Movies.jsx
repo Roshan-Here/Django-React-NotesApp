@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { getMovies,deleteMovie } from '../services/fakeMovieService.js'
-
+import Like from './Like.jsx'
 
 function Movies() {
   const [moview, setmovies] = useState([])
-
   useEffect(()=>{
     const fechedMoview = getMovies();
     setmovies(fechedMoview);
@@ -18,7 +17,17 @@ function Movies() {
     setmovies(remaining)
   }
 
-  console.log(moview)
+  // console.log(moview)
+
+  const handleLike = (moviee) =>{
+    const wow = moview.map(m=>{
+        if(m._id===moviee._id){
+        return {...m,liked:!m.liked}
+      }
+      return m
+    })
+    setmovies(wow)     
+  }
 
   const trmoviedetails = () =>{
     if (moview.length ===0){
@@ -31,6 +40,14 @@ function Movies() {
         <td className='py-3 px-3'>{movie.genre.name}</td>
         <td className='py-3 px-3'>{movie.numberInStock}</td>
         <td className='py-3 px-3'>{movie.dailyRentalRate}</td>
+        <th 
+            className='py- px-3' 
+            onClick={()=>{handleLike(movie)}}
+            >
+            <Like
+              liked = {movie.liked}
+            />
+        </th>
         <td className='py-3 px-3'>
           <a onClick={() => handledelete(movie._id)} className='font-extrabold text-blue-600 hover:text-red-700' href="#">Delete</a>
           </td>
@@ -52,6 +69,7 @@ function Movies() {
               <th className='py-3 px-3 '>Genere</th>
               <th className='py-3 px-3 '>stock</th>
               <th className='py-3 px-3 '>Rate</th>
+              <th className='py-3 px-3'>like</th>
               <th className='py-3 px-3 '>d</th>
             </tr>
           </thead>

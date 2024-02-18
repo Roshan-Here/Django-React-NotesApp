@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Count from "./Count";
 
 
-function Counters({counters,onReset,onDelete,onIncrement}) {
+function Counters({counters,onReset,onDelete,onIncrement,onDecrement}) {
   // console.log(counters)
   return (
     <div className="m-20">
@@ -20,6 +20,7 @@ function Counters({counters,onReset,onDelete,onIncrement}) {
           id={ccc.id}
           Ccntr = {counters}
           Counthandle = {()=>onIncrement(ccc)}
+          onDecrement = {()=>onDecrement(ccc)}
         ></Count>
       ))}
     </div>

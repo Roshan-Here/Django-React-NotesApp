@@ -22,15 +22,15 @@ function NotesListPage({}) {
         <Headers
           notes = {notes}
         />
-      <div className="w-screen h-screen max-w-screen-xl mx-auto  bg-slate-950">
-      <Listitem
-      notes = {notes}
-      />
-      <div className="fixed bottom-12 right-6 p-8 flex items-end justify-end w-24 h-24">
-        <div className="text-yy shadow-xl items-center rounded-full">
-          <AddButton/>
-        </div>
-      </div>
+      <div className="">
+          <Listitem
+          notes = {notes}
+          />
+          <div className="fixed bottom-12 right-6 p-8 flex items-end justify-end w-24 h-24">
+            <div className="text-yy shadow-xl items-center rounded-full">
+              <AddButton/>
+            </div>
+          </div>
         </div>
     </main>
   )

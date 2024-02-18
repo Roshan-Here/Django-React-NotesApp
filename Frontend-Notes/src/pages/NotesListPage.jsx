@@ -26,7 +26,7 @@ function NotesListPage({}) {
       <Listitem
       notes = {notes}
       />
-      <div className="fixed bottom-10 right-0 p-2 flex items-end justify-end w-24 h-24">
+      <div className="fixed bottom-12 right-6 p-8 flex items-end justify-end w-24 h-24">
         <div className="text-yy shadow-xl items-center rounded-full">
           <AddButton/>
         </div>

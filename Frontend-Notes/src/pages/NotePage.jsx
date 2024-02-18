@@ -50,7 +50,7 @@ function NotePage() {
     }
 
     const handleSubmit= ()=>{
-      if(id!=='new' && !note.body!==''){
+      if(id!=='new' && note.body==''){
         deleteNote()
       }
       else if(id!=='new'){
@@ -86,14 +86,21 @@ function NotePage() {
         return wow
       }
         else{
-        const wow =( 
-          <Link to={'/'}>
-              <button
-                onClick={()=>handleSubmit()}
-                className='font-extrabold text-yy text-xl'>
-                Done
-              </button>
-          </Link>
+        const wow =(
+          <>
+          <div className='flex flex-row m-4' >
+              <h3 className='text-yy text-2xl'>Create new Note</h3>
+          </div>           
+         <div className='flex flex-row m-4 px-12'> 
+            <Link to={'/'}>
+                <button
+                  onClick={()=>handleSubmit()}
+                  className='font-extrabold text-yy text-xl'>
+                  Done
+                </button>
+            </Link>
+        </div>
+        </>
         )
         return wow
       }
@@ -116,9 +123,8 @@ function NotePage() {
                     />
                 </figure>
               </div>
-              <div className='flex flex-row py-2 px-24'>
+
                     {showDeleteButton()}
-              </div>
             </div>
         <div className='min-h-screen bg-slate-950'>
               <textarea 

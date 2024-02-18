@@ -9,7 +9,7 @@ def getRoutes(request):
     return JsonResponse("Starting..... ", safe=False)
 
 class NoteListView(generics.ListAPIView):
-    queryset = Note.objects.all()
+    queryset = Note.objects.all().order_by('-created')
     serializer_class = NoteSerializer
 
 class NoteCreate(generics.CreateAPIView):

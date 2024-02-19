@@ -98,3 +98,22 @@ class EngineerSerializer(serializers.ModelSerializer):
         engineer = Engineer.objects.create(**validated_data)
         experiences = [Experience.objects.create(enginner=engineer, **e_data) for e_data in experiences_data]
         return engineer
+    
+    def update(self, instance, validated_data):
+        experiences_data = validated_data.pop('experiences',[])
+        instance.name = validated_data.get('name',instance.name)
+        instance.slug = validated_data.get('slug',instance.slug)
+        instance.address = validated_data.get('address',instance.address)
+        instance.save()
+        
+        for exp_data in experiences_data:
+            year_of_join = exp_data.get('year_of_join')
+            experience = Experience.objects.filter(enginner=instance, year_of_join=year_of_join).first()
+            if experience:
+                experience.job_title = exp_data.get('job_title', experience.job_title)
+                experience.description = exp_data.get('description', experience.description)
+                experience.save()
+            else:
+                Experience.objects.create(enginner=instance, **exp_data)
+                
+        return instance

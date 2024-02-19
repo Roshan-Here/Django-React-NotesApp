@@ -15,6 +15,24 @@ class EngineerCreateView(generics.ListCreateAPIView):
     serializer_class = EngineerSerializer
 
 
+class EngineerUpdateView(generics.UpdateAPIView):
+    queryset = Engineer.objects.all()
+    serializer_class = EngineerSerializer
+    lookup_field = 'slug'
+
+class EngineerDeleteView(generics.DestroyAPIView):
+    queryset = Engineer.objects.all()
+    serializer_class = EngineerSerializer
+    lookup_field = 'slug'
+    
+    def perform_destroy(self, instance):
+        return super().perform_destroy(instance)
+
+class EngineerRetriveView(generics.RetrieveAPIView):
+    queryset = Engineer.objects.all()
+    serializer_class = EngineerSerializer
+    lookup_field = 'slug'
+
 # class StudyCreateView(generics.ListCreateAPIView):
 #     queryset = StudyDetail.objects.all()
 #     serializer_class = StudySerializer

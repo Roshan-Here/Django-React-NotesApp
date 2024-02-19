@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'phonenumber_field',
+    # 'phonenumber_field',
     'api',
     'corsheaders',
 ]
@@ -125,4 +125,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-PHONENUMBER_DEFAULT_REGION = "IN"
+# PHONENUMBER_DEFAULT_REGION = "IN"

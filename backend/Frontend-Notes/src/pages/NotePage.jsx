@@ -15,7 +15,7 @@ function NotePage() {
 
   const getNote = async () => {
     if (!id || id === "new") return;
-    const resp = await fetch(`http://192.168.1.7:8000/api/${id}`);
+    const resp = await fetch(`https://djangoreactnotes.pythonanywhere.com/api/${id}`);
     const data = await resp.json();
     // console.log(data)
     setNote(data);

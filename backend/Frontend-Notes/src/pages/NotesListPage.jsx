@@ -12,7 +12,7 @@ function NotesListPage({}) {
   // Async => makes a funciton return a promise 
   // Await =>  makes an async function wait for promise
   let getNotes = async ()=>{
-    let res = await fetch("http://192.168.1.7:8000/api/list")
+    let res = await fetch("https://djangoreactnotes.pythonanywhere.com/api/list")
     let data = await res.json()
     console.log("Data",data)
     SetNotes(data)

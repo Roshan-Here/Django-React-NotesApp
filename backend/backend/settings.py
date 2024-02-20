@@ -67,6 +67,7 @@ if DEBUG:
         "http://192.168.1.7:8000",
         "http://localhost:8080",
         "http://127.0.0.1:8000",
+        "http://192.168.1.3:8111"
     ]
 
 TEMPLATES = [

@@ -6,6 +6,8 @@ import Pagination from "./Pagination.jsx";
 import Sortby from "./SortBy.jsx";
 
 function Movies() {
+  const genereslist = getGenres()
+  // const nice = v.map(m=>(console.log(m.name)))
   const [moview, setmovies] = useState([]);
   useEffect(() => {
     const fechedMoview = getMovies();
@@ -94,6 +96,19 @@ function Movies() {
     setCurrentPage(id)
   }
 
+// Sortby Geners:
+  const handleonAction = (generename) =>{
+    // console.log(moview.filter(k=>k.genre.name ===generename))
+    const moview = getMovies()
+    const generemovielist = moview.filter(k=>k.genre.name === generename)
+    setmovies(generemovielist)
+  } 
+
+  const handleReset = () =>{
+    const moview = getMovies()
+    setmovies(moview)
+  }
+
 
   return (
     <div>
@@ -102,7 +117,11 @@ function Movies() {
       </h1>
       <div className="grid gap-2 m-2 sm:grid-cols-12">
 {/*  */}
-        <Sortby/>
+        <Sortby
+        Genereslist = {genereslist}
+        HandleonAction = {handleonAction}
+        HandleReset = {handleReset}
+        />
 {/*  */}
         <div className="sm:col-span-8 ">
           {/* table.table>thead>tr>th*4  */}

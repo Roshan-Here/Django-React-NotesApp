@@ -32,7 +32,7 @@ function NotePage() {
   };
   //
   const updateNote = async () => {
-    const resp = fetch(`http://192.168.1.7:8000/api/${id}/update`, {
+    const resp = fetch(`https://djangoreactnotes.pythonanywhere.com/api/${id}/update`, {
       method: "PUT",
       headers: header,
       body: JSON.stringify(note),
@@ -41,7 +41,7 @@ function NotePage() {
   };
 
   const createNote = async () => {
-    const resp = fetch(`http://192.168.1.7:8000/api/create`, {
+    const resp = fetch(`https://djangoreactnotes.pythonanywhere.com/api/create`, {
       method: "POST",
       headers: header,
       body: JSON.stringify(note),
@@ -61,7 +61,7 @@ function NotePage() {
   };
 
   const deleteNote = async () => {
-    const resp = fetch(`http://192.168.1.7:8000/api/${id}/delete`, {
+    const resp = fetch(`https://djangoreactnotes.pythonanywhere.com/api/${id}/delete`, {
       method: "DELETE",
       headers: header,
     });

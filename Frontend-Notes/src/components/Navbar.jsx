@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 function Navbar({totalCounters}) {
   return (
@@ -13,7 +14,9 @@ function Navbar({totalCounters}) {
               Total {totalCounters}
             </button>
             <button className="px-6 py-2 text-white transition duration-500 ease-out bg-blue-700 rounded-lg hover:bg-blue-800 hover:ease-in">
-              Sign up
+              <Link to={'/movies'}>
+                Movies
+              </Link>
             </button>
           </div>
         </div>

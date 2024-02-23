@@ -10,16 +10,23 @@ function DetailMovie() {
     console.log(movielist)
     const reqmoviedetail = movielist.filter(m=>m._id===id.id)
     // console.log(reqmoviedetail)
+
     return (
     <>
         <NavbarForMovies/>
         <div className='mt-16 text-gray-700 m-3'>
-        <p className='text-2xl'>Name : {reqmoviedetail[0].title}</p>
-        <p className='text-xl'>Geners : {reqmoviedetail[0].genre.name}</p>
-        <p className='text-xl'>inStoc : {reqmoviedetail[0].numberInStock}</p>
-        <p className='text-xl'>Daily Rentel Rate : {reqmoviedetail[0].dailyRentalRate}</p>
+        {
+            reqmoviedetail.map(k=>(
+            <>
+                <p className='text-2xl'>Name : {k.title}</p>
+                <p className='text-xl'>Geners : {k.genre.name}</p>
+                <p className='text-xl'>inStoc : {k.numberInStock}</p>
+                <p className='text-xl'>Daily Rentel Rate : {k.dailyRentalRate}</p>
+            </>
+            ))
+        }
         <button className='mt-6 p-4 bg-green-400 text-orange-500 border border-red-700 hover:bg-slate-700'>
-            <Link to={'/Movies'}>Save</Link>
+            <Link to={'/movies'}>Save</Link>
         </button>
         </div>
     </>

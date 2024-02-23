@@ -3,7 +3,10 @@ import { getMovies, deleteMovie } from "../services/fakeMovieService.js";
 import {getGenres} from '../services/fakeGenreService.js'
 import Like from "./Like.jsx";
 import Pagination from "./Pagination.jsx";
+import NavbarForMovies from "./NavbarForMovies.jsx";
 import Sortby from "./SortBy.jsx";
+import { Link } from "react-router-dom";
+
 
 function Movies() {
   const genereslist = getGenres()
@@ -54,7 +57,9 @@ function Movies() {
     } else {
       const wow = records.map((movie) => (
         <tr className="border-b border-blue-gray-200" key={movie._id}>
-          <td className="py-3 px-3">{movie.title}</td>
+          <Link to={`/movies/${movie._id}`}>
+            <td className="py-3 px-3 text-blue-600">{movie.title}</td>
+          </Link>
           <td className="py-3 px-3">{movie.genre.name}</td>
           <td className="py-3 px-3">{movie.numberInStock}</td>
           <td className="py-3 px-3">{movie.dailyRentalRate}</td>
@@ -111,7 +116,9 @@ function Movies() {
 
 
   return (
-    <div>
+    <>
+    <NavbarForMovies/>
+    <div className="mt-16">
       <h1 className="m-2 bg-black text-red-700 font-extrabold">
         Movies database of {moview.length === 0 ? "Zero" : moview.length}
       </h1>
@@ -147,6 +154,7 @@ function Movies() {
       ChangeCpage = {changeCpage}
       />
     </div>
+    </>
   )
 }
 

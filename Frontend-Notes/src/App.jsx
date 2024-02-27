@@ -6,6 +6,7 @@ import DetailMovie from './components/DetailMovie.jsx';
 import NavbarForMovies from './components/NavbarForMovies.jsx';
 import Home from './pages/Home.jsx';
 import RentADay from './components/RentADay.jsx';
+import NotFound from './components/NotFound.jsx';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/rent' element={<RentADay/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/movies/:id' element={<DetailMovie/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
     </>

@@ -25,9 +25,11 @@ function DetailMovie() {
             </>
             ))
         }
-        <button className='mt-6 p-4 bg-green-400 text-orange-500 border border-red-700 hover:bg-slate-700'>
-            <Link to={'/movies'}>Save</Link>
-        </button>
+        <Link to={'/movies'}>
+            <button className='mt-6 p-4 bg-green-400 text-orange-500 border border-red-700 hover:bg-slate-700'>
+                Save
+            </button>
+        </Link>
         </div>
     </>
   )

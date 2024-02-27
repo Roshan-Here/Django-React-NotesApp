@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RentADay from './RentADay';
 
 function NavbarForMovies() {
   return (

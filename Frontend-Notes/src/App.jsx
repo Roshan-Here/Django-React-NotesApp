@@ -7,12 +7,14 @@ import NavbarForMovies from './components/NavbarForMovies.jsx';
 import Home from './pages/Home.jsx';
 import RentADay from './components/RentADay.jsx';
 import NotFound from './components/NotFound.jsx';
+import LoginForm from './components/LoginForm.jsx';
 
 function App() {
   return (
     <>
     <BrowserRouter>
       <Routes>
+        <Route path='/login' element={<LoginForm/>}/>
         <Route path='/movies' element={<Movies/>}/>
         <Route path='/rent' element={<RentADay/>}/>
         <Route path='/' element={<Home/>}/>

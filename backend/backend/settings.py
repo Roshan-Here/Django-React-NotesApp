@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'djoser',
     # 'phonenumber_field',
     'api',
+    'rest_framework_simplejwt',
     'corsheaders',
 ]
 
@@ -126,3 +128,56 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # PHONENUMBER_DEFAULT_REGION = "IN"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'snm20cs.muhammedroshanps@gmail.com' 
+EMAIL_HOST_PASSWORD = 'qxtvjlxyseosjxcc'
+EMAIL_USE_TLS = True
+# Email
+# snm20cs.muhammedroshanps@gmail.com
+# qxtv jlxy seos jxcc
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+   'AUTH_HEADER_TYPES': ('JWT',),
+}
+
+
+DJOSER = {
+    'LOGIN_FIELD':'email',
+    'USER_CREATE_PASSWORD_RETYPE' : True,
+    'USERNAME_CHANGED_EMAIL_CONFIRMATION':True,
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION':True,
+    'SEND_CONFIRMATION_EMAIL':True,
+    'SET_USERNAME_RETYPE':True,
+    'SET_PASSWORD_RETYPE':True,
+    'PASSWORD_RESET_CONFIRM_URL':'password-reset/{uid}/{token}',
+    'USERNAME_RESET_CONFIRM_URL':'email/{uid}/{token}',
+    'PASSWORD_RESET_CONFIRM_RETYPE':True,
+    'ACTIVATION_URL':'activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL':True,
+    'SERIALIZERS':{
+        'user_create':'api.serializers.UserCreateSerializer',
+        'user':'api.serializers.UserCreateSerializer',
+        'user_delete':'djoser.serializers.UserDeleteSerializer',
+    }
+}
+
+AUTH_USER_MODEL = 'api.UserAccount'
+
+# superuser
+# leo123
+# leo@gmail.com 
+# leo
+# python manage.py makemigrations api
+# python manage.py sqlflush
+# rm backend/db.sqlite3
+# python manage.py migrate

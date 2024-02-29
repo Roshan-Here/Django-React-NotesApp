@@ -1,6 +1,16 @@
 from rest_framework import serializers
 # from .models import StudyDetail,SchoolDetail
 from .models import Engineer,Experience
+from djoser.serializers import UserCreateSerializer
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+class UserCreateSerializer(UserCreateSerializer):
+    class Meta(UserCreateSerializer.Meta):
+        model = User
+        fields = ('id','email','name','password')
+        
 
 
 # class SchoolDetailSerializer(serializers.ModelSerializer):

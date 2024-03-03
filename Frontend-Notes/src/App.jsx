@@ -19,8 +19,13 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Provider store={store}>
-          <Route path='/login' element={<AuthLogin/>}/>
+          <Route path='/login' element={
+            
+            <Provider store={store}>
+          <AuthLogin/>
+            </Provider>
+          
+          }/>
           <Route path='/signup' element={<AuthSignup/>}/>
           <Route path='/rent' element={<RentADay/>}/>
           <Route path='/activate/:uid/:token' element={<AuthAcitvate/>}/>
@@ -29,7 +34,6 @@ function App() {
           <Route path='/' element={<AuthHome/>}/>
           <Route path='/movies/:id' element={<DetailMovie/>}/>
           <Route path='*' element={<NotFound/>}/>
-        </Provider>
       </Routes>
     </BrowserRouter>
     </>

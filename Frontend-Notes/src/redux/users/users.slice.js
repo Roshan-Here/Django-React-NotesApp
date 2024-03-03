@@ -1,26 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+const getinitialState =()=> ({
     access : localStorage.getItem('access'),
     refresh : localStorage.getItem('refresh'),
     currentUser : undefined,
     isAuthenticated : null,
     loading: false,
     error: null,
-}
+})
 
 const userSlice = createSlice({
     name: 'user',
-    initialState,
+    initialState:getinitialState(),
     reducers:{
         signInStart:(state)=>{
-            state.loading=True
+            state.loading=true
         },
         signInSucess:(state,action)=>{
+            console.log(action.payload.access)
+            console.log(state.access)
+            // localStorage.setItem('access',action.payload.access)
             state.access = action.payload.access
             state.refresh = action.payload.refresh
             state.currentUser = action.payload;
-            state.isAuthenticated = True;
+            state.isAuthenticated = true;
             state.loading = false;
             state.error = null;
         },

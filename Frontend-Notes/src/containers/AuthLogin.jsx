@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Link, redirect } from 'react-router-dom'
-import { signInStart } from '../redux/users/users.slice'
+import { Link, redirect, useNavigate } from 'react-router-dom'
+import { signInStart, signInSucess, signinFailure } from '../redux/users/users.slice'
 import { useDispatch } from 'react-redux'
 
 
 function AuthLogin() {
     const [formdata,SetFormData] = useState({})
+
+    const navigate = useNavigate()
 
     const Dispatch = useDispatch()
 
@@ -15,19 +17,26 @@ function AuthLogin() {
 
     const onChange = (e) =>{SetFormData({...formdata,[e.target.id]:e.target.value})}
 
-    const srignify = JSON.stringify(formdata)
-    console.log(srignify)
+    const stringify = JSON.stringify(formdata)
+    console.log(stringify)
     const handleonSubmit = async(e) =>{
         e.preventDefault()
         try{
-            Dispatch(signInStart)
-            const res = await fetch('/auth/users/',{
+            Dispatch(signInStart())
+            const res = await fetch('http://127.0.0.1:8000/auth/jwt/create/',{
                 method:'POST',
                 headers:{
                     "Content-Type":"application/json",
                 },
-                body:srignify
+                body:stringify
             });
+        const data = await res.json()
+        if(data.success === false){
+            Dispatch(signinFailure(data.message))
+            return
+        }
+        Dispatch(signInSucess(data))
+        navigate('/')
         }catch(e){
             console.log('err',e)
         }

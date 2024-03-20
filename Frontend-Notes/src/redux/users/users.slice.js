@@ -19,7 +19,7 @@ const userSlice = createSlice({
         signInSucess:(state,action)=>{
             console.log(action.payload.access)
             console.log(state.access)
-            // localStorage.setItem('access',action.payload.access)
+            localStorage.setItem('access',action.payload.access)
             state.access = action.payload.access
             state.refresh = action.payload.refresh
             state.currentUser = action.payload;

@@ -13,7 +13,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     // windows
-    host: '192.168.1.4',
+    host: '192.168.1.5',
     // linux
     // host: '192.168.1.1',
     port: 8111,

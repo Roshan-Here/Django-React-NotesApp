@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.utils.text import slugify
+from django.utils import timezone
 # from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
@@ -32,9 +33,14 @@ class UserAccountManager(BaseUserManager):
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
+    
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    
+    date_joined = models.DateTimeField(default=timezone.now)
+    last_login = models.DateTimeField(blank=True, null=True)
+    
     objects = UserAccountManager()
 
     USERNAME_FIELD = 'email'

@@ -182,12 +182,14 @@ DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL':'password-reset/{uid}/{token}',
     'USERNAME_RESET_CONFIRM_URL':'email/{uid}/{token}',
     'PASSWORD_RESET_CONFIRM_RETYPE':True,
+    'LOGOUT_ON_PASSWORD_CHANGE':True,
     'ACTIVATION_URL':'activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL':True,
     'SERIALIZERS':{
         'user_create':'api.serializers.UserCreateSerializer',
         'user':'api.serializers.UserCreateSerializer',
         'user_delete':'djoser.serializers.UserDeleteSerializer',
+        'current_user': 'djoser.serializers.UserSerializer',
     }
 }
 
